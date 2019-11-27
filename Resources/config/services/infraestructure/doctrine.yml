@@ -18,9 +18,6 @@ services:
 
   Ivoz\Core\Infrastructure\Persistence\Doctrine\ORM\Mapping\QuoteStrategy: ~
 
-
-  Ivoz\Core\Infrastructure\Persistence\Doctrine\ORM\Mapping\QuoteStrategy: ~
-
   core.doctrine_foreign_key_transformer:
     '@Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer'
 
@@ -34,3 +31,7 @@ services:
     lazy: true
 
   Ivoz\Core\Infrastructure\Domain\Service\DoctrineQueryRunner: ~
+
+  Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer:
+    arguments:
+    - '@doctrine.orm.entity_manager'

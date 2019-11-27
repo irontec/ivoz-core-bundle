@@ -4,11 +4,7 @@ services:
     autoconfigure: true
     public: false
 
-  Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer:
-    arguments:
-    - '@doctrine.orm.entity_manager'
-
-  Ivoz\Core\Domain\Model\EntityInterface\ForeignKeyTransformerInterface:
+  Ivoz\Core\Application\ForeignKeyTransformerInterface:
     '@Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer'
 
   core.doctrine_foreign_key_transformer:

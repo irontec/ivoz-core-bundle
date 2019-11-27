@@ -5,3 +5,5 @@ services:
     public: true
 
   Psr\Log\LoggerInterface: '@logger'
+
+  Ivoz\Core\Infrastructure\Symfony\HttpFoundation\RequestDateTimeResolver: ~
