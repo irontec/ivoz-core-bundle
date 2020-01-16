@@ -1,12 +1,11 @@
 imports:
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/filesystem.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/asterisk.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/cgrates.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/doctrine.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/gearmand.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/http.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/kam.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/mailer.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/repositories.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/rest.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure/symfony.yml' }
+  - { resource: 'infraestructure/filesystem.yml' }
+  - { resource: 'infraestructure/asterisk.yml' }
+  - { resource: 'infraestructure/cgrates.yml' }
+  - { resource: 'infraestructure/doctrine.yml' }
+  - { resource: 'infraestructure/gearmand.yml' }
+  - { resource: 'infraestructure/http.yml' }
+  - { resource: 'infraestructure/kam.yml' }
+  - { resource: 'infraestructure/mailer.yml' }
+  - { resource: 'infraestructure/rest.yml' }
+  - { resource: 'infraestructure/symfony.yml' }
