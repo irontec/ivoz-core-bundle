@@ -1,14 +1,10 @@
 imports:
-  - { resource: "@CoreBundle/Resources/config/autoload.yml" }
-  - { resource: '@CoreBundle/Resources/config/services/entities.yml' }
-  - { resource: '@CoreBundle/Resources/config/services/infraestructure.yml' }
-  - { resource: "@CoreBundle/Resources/config/services/path_resolvers.yml" }
-  - { resource: "@CoreBundle/Resources/config/services/assemblers.yml" }
-  - { resource: "@CoreBundle/Resources/config/services/domain.yml" }
-  - { resource: "@CoreBundle/Resources/config/services/events.yml" }
-  - { resource: "@CoreBundle/Resources/config/services/application.yml" }
-  - { resource: '@CoreBundle/Resources/config/lifecycle.yml' }
-  - { resource: '@CoreBundle/Resources/config/model.yml' }
+  - { resource: 'services/infraestructure.yml' }
+  - { resource: 'services/entities.yml' }
+  - { resource: "services/assemblers.yml" }
+  - { resource: "services/events.yml" }
+  - { resource: "services/application.yml" }
+  - { resource: 'lifecycle.yml' }
 
 services:
   _defaults:

@@ -1,6 +1,3 @@
-imports:
-  - { resource: "orm_target_entities.yml" }
-
 doctrine:
   dbal:
     driver:   pdo_mysql
@@ -29,24 +26,3 @@ doctrine:
     quote_strategy: 'Ivoz\Core\Infrastructure\Persistence\Doctrine\ORM\Mapping\QuoteStrategy'
     naming_strategy: doctrine.orm.naming_strategy.underscore
     auto_mapping: yes
-    mappings:
-      Provider:
-        type: yml
-        is_bundle: false
-        dir: '/opt/irontec/ivozprovider/library/Ivoz/Provider/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: Ivoz\Provider\Domain\Model
-      Ast:
-        type: yml
-        is_bundle: false
-        dir: '/opt/irontec/ivozprovider/library/Ivoz/Ast/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: Ivoz\Ast\Domain\Model
-      Kam:
-        type: yml
-        is_bundle: false
-        dir: '/opt/irontec/ivozprovider/library/Ivoz/Kam/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: Ivoz\Kam\Domain\Model
-      Cgr:
-        type: yml
-        is_bundle: false
-        dir: '/opt/irontec/ivozprovider/library/Ivoz/Cgr/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: Ivoz\Cgr\Domain\Model
