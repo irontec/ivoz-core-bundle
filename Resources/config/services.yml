@@ -15,3 +15,7 @@ services:
   Ivoz\Core\Infrastructure\Symfony\EventListener\DomainExceptionListener:
     tags:
       - { name: kernel.event_listener, event: kernel.exception, priority: 1 }
+
+  Ivoz\CoreBundle\Command\:
+    resource: '%kernel.project_dir%/vendor/irontec/ivoz-core-bundle/Command/*'
+    tags: [{ name: 'console.command'}]
