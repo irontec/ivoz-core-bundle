@@ -12,20 +12,20 @@ monolog:
       - !provisioning
 
    fingers_crossed_handler:
-     ident: onError
+     ident: php.onError
      type: syslog
      level: info
      buffer_size: 100
 
    changelog_handler:
-     ident: changelog
+     ident: php.changelog
      type: syslog
      level: info
      priority: 10
      channels: changelog
 
    provisioning_handler:
-     ident: provisioning
+     ident: php.provisioning
      type: syslog
      level: info
      priority: 10
