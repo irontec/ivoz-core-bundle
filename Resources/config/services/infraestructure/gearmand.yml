@@ -36,28 +36,3 @@ services:
     arguments:
       $manager: '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Manager'
       $settings: '%gearmand%'
-
-  ###############################################
-  ## Client
-  ###############################################
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\FakeXmlRpcTrunksRequest: ~
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcTrunksRequest:
-    arguments:
-      $enabled:
-        '@=service("kernel").getEnvironment() != "test"'
-    tags:
-      - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\FakeXmlRpcTrunksRequest' }
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcTrunksRequestInterface:
-    '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcTrunksRequest'
-
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\FakeXmlRpcUsersRequest: ~
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcUsersRequest:
-    arguments:
-      $enabled:
-        '@=service("kernel").getEnvironment() != "test"'
-    tags:
-    - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\FakeXmlRpcUsersRequest' }
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcUsersRequestInterface:
-    '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Client\XmlRpcUsersRequest'

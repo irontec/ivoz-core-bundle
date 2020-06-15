@@ -1,7 +1,5 @@
 imports:
   - { resource: 'infraestructure/filesystem.yml' }
-  - { resource: 'infraestructure/asterisk.yml' }
-  - { resource: 'infraestructure/cgrates.yml' }
   - { resource: 'infraestructure/doctrine.yml' }
   - { resource: 'infraestructure/gearmand.yml' }
   - { resource: 'infraestructure/http.yml' }
