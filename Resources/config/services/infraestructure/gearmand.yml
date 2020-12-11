@@ -9,6 +9,8 @@ services:
 
   Ivoz\Core\Infrastructure\Domain\Service\Gearman\FakeManager: ~
 
+  Ivoz\Core\Infrastructure\Domain\Service\Cgrates\ApiClient: ~
+
   ###############################################
   ## Jobs
   ###############################################
