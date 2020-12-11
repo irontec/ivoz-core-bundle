@@ -8,7 +8,9 @@ services:
     public: true
 
   Ivoz\Core\Application\Service\CommandEventSubscriber: ~
-  Ivoz\Core\Domain\Service\EntityEventSubscriber: ~
+
+  Ivoz\Core\Domain\Service\EntityEventSubscriber:
+    public: true
 
   # DomainEventPublisher calls are autocompleted on cache regenerations (Compiler fase)
   Ivoz\Core\Domain\Service\DomainEventPublisher:

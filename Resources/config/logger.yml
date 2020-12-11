@@ -7,9 +7,10 @@ monolog:
      priority: 1
      handler: fingers_crossed_handler
      buffer_size: 100
-     channels:
-      - !changelog
-      - !provisioning
+     channels: ["!changelog", "!provisioning"]
+     excluded_404s:
+       # regex: exclude all 404 errors from the logs
+       - ^/
 
    fingers_crossed_handler:
      ident: php.onError
