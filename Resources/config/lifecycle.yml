@@ -12,7 +12,7 @@ services:
       $serviceContainer: '@service_container'
       $forcedEntityChangeLog: '@=service("kernel").getEnvironment() == "test"'
     tags:
-      - { name: doctrine.event_subscriber }
+      - { name: doctrine.event_subscriber, priority: -1 }
 
   Ivoz\Core\Domain\Service\CommonLifecycleServiceCollection:
     public: true
