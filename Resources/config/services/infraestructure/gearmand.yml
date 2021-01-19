@@ -9,30 +9,3 @@ services:
 
   Ivoz\Core\Infrastructure\Domain\Service\Gearman\FakeManager: ~
 
-  ###############################################
-  ## Jobs
-  ###############################################
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\Cgrates:
-    arguments:
-      $settings: '%gearmand%'
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\Invoicer:
-    arguments:
-      $settings: '%gearmand%'
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\RatesImporter:
-    arguments:
-      $manager: '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Manager'
-      $settings: '%gearmand%'
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\Recoder:
-    arguments:
-      $manager: '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Manager'
-      $settings: '%gearmand%'
-
-  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\Xmlrpc:
-    shared: false
-    arguments:
-      $manager: '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Manager'
-      $settings: '%gearmand%'
