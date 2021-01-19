@@ -9,3 +9,12 @@ services:
 
   Ivoz\Core\Infrastructure\Domain\Service\Gearman\FakeManager: ~
 
+  ###############################################
+  ## Jobs
+  ###############################################
+
+  Ivoz\Core\Infrastructure\Domain\Service\Gearman\Jobs\Xmlrpc:
+    shared: false
+    arguments:
+      $manager: '@Ivoz\Core\Infrastructure\Domain\Service\Gearman\Manager'
+      $settings: '%gearmand%'
