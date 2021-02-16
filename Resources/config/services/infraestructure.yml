@@ -5,5 +5,6 @@ imports:
   - { resource: 'infraestructure/http.yml' }
   - { resource: 'infraestructure/kam.yml' }
   - { resource: 'infraestructure/mailer.yml' }
+  - { resource: 'infraestructure/redis.yml' }
   - { resource: 'infraestructure/rest.yml' }
   - { resource: 'infraestructure/symfony.yml' }
