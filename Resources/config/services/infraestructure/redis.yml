@@ -14,5 +14,5 @@ services:
 
   Ivoz\Core\Infrastructure\Persistence\Redis\Lock: ~
 
-  Ivoz\Core\Application\MutextInterface:
+  Ivoz\Core\Application\MutexInterface:
     alias: 'Ivoz\Core\Infrastructure\Persistence\Redis\Lock'
