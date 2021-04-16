@@ -12,6 +12,8 @@ services:
       $config: '%sentinels%'
       $logger: '@logger'
 
+  Ivoz\Core\Infrastructure\Persistence\Redis\RedisMasterFactory: ~
+
   Ivoz\Core\Infrastructure\Persistence\Redis\Lock: ~
 
   Ivoz\Core\Application\MutexInterface:
