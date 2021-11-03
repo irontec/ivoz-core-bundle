@@ -12,6 +12,7 @@ services:
       $config: '%sentinels%'
       $logger: '@logger'
 
+  Ivoz\Core\Infrastructure\Persistence\Redis\FakeRedisMasterFactory: ~
   Ivoz\Core\Infrastructure\Persistence\Redis\RedisMasterFactory:
     tags:
       - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Persistence\Redis\FakeRedisMasterFactory' }
