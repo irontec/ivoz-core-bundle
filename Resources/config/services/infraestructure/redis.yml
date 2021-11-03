@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ivoz\Core\Infrastructure\Persistence\Redis\Sentinel:
+    factory:
+      - 'Ivoz\Core\Infrastructure\Persistence\Redis\Sentinel'
+      - 'fromConfigArray'
+    arguments:
+      $config: '%sentinels%'
+      $logger: '@logger'
+
+  Ivoz\Core\Infrastructure\Persistence\Redis\Lock: ~
+
+  Ivoz\Core\Application\MutextInterface:
+    alias: 'Ivoz\Core\Infrastructure\Persistence\Redis\Lock'

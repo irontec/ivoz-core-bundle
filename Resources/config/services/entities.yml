@@ -24,15 +24,15 @@ services:
   core.doctrine_collection_transformer:
     '@Ivoz\Core\Infrastructure\Application\DoctrineCollectionTransformer'
 
-  Ivoz\Core\Application\Service\CreateEntityFromDTO: ~
+  Ivoz\Core\Application\Service\CreateEntityFromDto: ~
 
-  core.create_entity_from_dto: '@Ivoz\Core\Application\Service\CreateEntityFromDTO'
+  core.create_entity_from_dto: '@Ivoz\Core\Application\Service\CreateEntityFromDto'
 
-  Ivoz\Core\Application\Service\UpdateEntityFromDTO:
+  Ivoz\Core\Application\Service\UpdateEntityFromDto:
     public: true
 
   core.update_entity_from_dto:
-    class: Ivoz\Core\Application\Service\UpdateEntityFromDTO
+    class: Ivoz\Core\Application\Service\UpdateEntityFromDto
 
   Ivoz\Core\Domain\Service\EntityPersisterInterface:
     '@Ivoz\Core\Infrastructure\Domain\Service\DoctrineEntityPersister'
