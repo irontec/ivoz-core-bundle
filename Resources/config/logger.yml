@@ -8,8 +8,8 @@ monolog:
      handler: fingers_crossed_handler
      buffer_size: 100
      channels:
-      - !changelog
-      - !provisioning
+      - '!changelog'
+      - '!provisioning'
 
    fingers_crossed_handler:
      ident: php.onError
