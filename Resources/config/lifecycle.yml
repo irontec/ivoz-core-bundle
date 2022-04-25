@@ -21,6 +21,9 @@ services:
   Ivoz\Core\Infrastructure\Persistence\Doctrine\Service\DuplicateEntryCommonErrorHandler:
     tags: [{ name: 'domain.service'}]
 
+  Ivoz\Core\Infrastructure\Persistence\Doctrine\Service\OnDeleteRestrictCommonErrorHandler:
+    tags: [ { name: 'domain.service' } ]
+
   Ivoz\Core\Infrastructure\Persistence\Filesystem\Commit:
     tags: [{ name: 'domain.service'}]
 
