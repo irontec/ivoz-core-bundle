@@ -4,10 +4,12 @@ services:
     autoconfigure: true
     public: false
 
+  Symfony\Component\Mailer\Mailer: ~
+
   Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient: ~
   Ivoz\Core\Infrastructure\Domain\Service\Mailer\Client:
     arguments:
-      $mailer: '@mailer'
+      $mailer: '@Symfony\Component\Mailer\Mailer'
     tags:
     - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient' }
 
