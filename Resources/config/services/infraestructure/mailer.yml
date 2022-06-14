@@ -13,7 +13,7 @@ services:
   Ivoz\Core\Domain\Service\MailerClientInterface:
     '@Ivoz\Core\Infrastructure\Domain\Service\Mailer\Client'
 
-when@tests:
+when@test:
   services:
     _defaults:
       autowire: true
