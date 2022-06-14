@@ -6,12 +6,20 @@ services:
 
   Symfony\Component\Mailer\Mailer: ~
 
-  Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient: ~
   Ivoz\Core\Infrastructure\Domain\Service\Mailer\Client:
     arguments:
       $mailer: '@Symfony\Component\Mailer\Mailer'
-    tags:
-    - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient' }
 
   Ivoz\Core\Domain\Service\MailerClientInterface:
     '@Ivoz\Core\Infrastructure\Domain\Service\Mailer\Client'
+
+when@tests:
+  services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+    Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient: ~
+    Ivoz\Core\Domain\Service\MailerClientInterface:
+      '@Ivoz\Core\Infrastructure\Domain\Service\Mailer\FakeClient'

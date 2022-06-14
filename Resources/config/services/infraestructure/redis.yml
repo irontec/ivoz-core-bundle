@@ -12,13 +12,19 @@ services:
       $config: '%sentinels%'
       $logger: '@logger'
 
-  Ivoz\Core\Infrastructure\Persistence\Redis\RedisMasterFactory:
-    tags:
-      - { name: test_double, fake: 'Ivoz\Core\Infrastructure\Persistence\Redis\FakeRedisMasterFactory' }
-
-  Ivoz\Core\Infrastructure\Persistence\Redis\FakeRedisMasterFactory: ~
+  Ivoz\Core\Infrastructure\Persistence\Redis\RedisMasterFactory: ~
 
   Ivoz\Core\Infrastructure\Persistence\Redis\Lock: ~
 
   Ivoz\Core\Application\MutexInterface:
     alias: 'Ivoz\Core\Infrastructure\Persistence\Redis\Lock'
+
+when@test:
+  services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+    Ivoz\Core\Infrastructure\Persistence\Redis\RedisMasterFactory:
+      class: Ivoz\Core\Infrastructure\Persistence\Redis\FakeRedisMasterFactory
