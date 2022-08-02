@@ -8,9 +8,7 @@ monolog:
      handler: fingers_crossed_handler
      buffer_size: 100
      channels: ["!changelog", "!provisioning"]
-     excluded_404s:
-       # regex: exclude all 404 errors from the logs
-       - ^/
+     excluded_http_codes: [404]
 
    fingers_crossed_handler:
      ident: php.onError
