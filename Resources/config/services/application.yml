@@ -3,7 +3,7 @@ services:
     autowire: true
     public: true
 
-  Ivoz\Core\Application\Service\QueryBuilderFactory:
+  Ivoz\Core\Domain\Service\QueryBuilderFactory:
     arguments:
       $entityManager: "@doctrine.orm.entity_manager"
 

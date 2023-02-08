@@ -13,11 +13,6 @@ services:
         allow_redirects: true
         verify: false
 
-  Ivoz\Core\Infrastructure\Service\Rest\Client:
-    arguments:
-      $platformHttpClient: '@ivoz.api_platform.http.client'
-      $jwtTokenManager: '@lexik_jwt_authentication.jwt_manager'
-
   Ivoz\Core\Domain\Service\ApiClientInterface:
     '@Ivoz\Core\Infrastructure\Service\Rest\Client'
 
