@@ -26,7 +26,7 @@
     },
     "require": {
         "php": ">=7.4",
-        "irontec/ivoz-core": "^4.15",
+        "irontec/ivoz-core": "^4.16",
         "symfony/proxy-manager-bridge": "^5.1",
         "doctrine/doctrine-bundle": "^2.0",
         "symfony/monolog-bundle": "^3.5"

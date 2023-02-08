@@ -16,7 +16,7 @@ services:
 
   Ivoz\Core\Infrastructure\Persistence\Redis\Lock: ~
 
-  Ivoz\Core\Application\MutexInterface:
+  Ivoz\Core\Domain\MutexInterface:
     alias: 'Ivoz\Core\Infrastructure\Persistence\Redis\Lock'
 
 when@test:
