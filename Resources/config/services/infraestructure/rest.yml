@@ -12,17 +12,3 @@ services:
         timeout: 0
         allow_redirects: true
         verify: false
-
-  Ivoz\Core\Domain\Service\ApiClientInterface:
-    '@Ivoz\Core\Infrastructure\Service\Rest\Client'
-
-when@test:
-  services:
-    _defaults:
-      autowire: true
-      autoconfigure: true
-      public: false
-
-    Ivoz\Core\Infrastructure\Service\Rest\FakeClient: ~
-    Ivoz\Core\Domain\Service\ApiClientInterface:
-      '@Ivoz\Core\Infrastructure\Service\Rest\FakeClient'
