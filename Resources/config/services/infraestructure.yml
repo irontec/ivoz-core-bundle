@@ -1,7 +1,7 @@
 imports:
+  - { resource: 'infraestructure/cgrates.yml' }
   - { resource: 'infraestructure/filesystem.yml' }
   - { resource: 'infraestructure/doctrine.yml' }
-  - { resource: 'infraestructure/gearmand.yml' }
   - { resource: 'infraestructure/http.yml' }
   - { resource: 'infraestructure/kam.yml' }
   - { resource: 'infraestructure/mailer.yml' }

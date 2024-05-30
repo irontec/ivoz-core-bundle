@@ -2,7 +2,8 @@
 
 namespace Ivoz\CoreBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -13,12 +14,9 @@ use Doctrine\ORM\Tools\SchemaTool;
  * @codeCoverageIgnore
  * @author Mikel Madariaga <mikel@irontec.com>
  */
-class PrepareDatabaseCommand extends ContainerAwareCommand
+class PrepareDatabaseCommand extends Command
 {
-    /**
-     * @var ManagerRegistry
-     */
-    private $doctrine;
+    protected static $defaultName = 'core:prepare:database';
 
     /**
      * @var \Doctrine\Common\Persistence\ObjectManager
@@ -38,9 +36,20 @@ class PrepareDatabaseCommand extends ContainerAwareCommand
     /**
      * @inheritdoc
      */
-    public function __construct($name = null)
-    {
-        return parent::__construct($name);
+    public function __construct(
+        EntityManagerInterface $em
+    ) {
+        $this->manager = $em;
+        $this->schemaTool = new SchemaTool(
+            $this->manager
+        );
+
+        $this->classes = $this
+            ->manager
+            ->getMetadataFactory()
+            ->getAllMetadata();
+
+        return parent::__construct();
     }
 
     /**
@@ -58,13 +67,10 @@ class PrepareDatabaseCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->doctrine = $this->getContainer()->get('doctrine');
-        $this->manager = $this->doctrine->getManager();
-        $this->schemaTool = new SchemaTool($this->manager);
-        $this->classes = $this->manager->getMetadataFactory()->getAllMetadata();
-
         $output->writeln('<info>Preparing database</info>');
         $this->createDatabase($output);
+
+        return Command::SUCCESS;
     }
 
     protected function createDatabase(OutputInterface $output)

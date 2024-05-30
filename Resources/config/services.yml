@@ -16,6 +16,12 @@ services:
     tags:
       - { name: kernel.event_listener, event: kernel.exception, priority: 1 }
 
+  Ivoz\Core\Infrastructure\Symfony\HttpFoundation\RequestDateTimeResolver: ~
+
   Ivoz\CoreBundle\Command\:
     resource: '%kernel.project_dir%/vendor/irontec/ivoz-core-bundle/Command/*'
     tags: [{ name: 'console.command'}]
+
+  Ivoz\Core\Infrastructure\Persistence\Doctrine\:
+    resource: '%kernel.project_dir%/vendor/irontec/ivoz-core/Infrastructure/Persistence/Doctrine/*DoctrineRepository.php'
+    tags: [{ name: 'domain.repository'}]

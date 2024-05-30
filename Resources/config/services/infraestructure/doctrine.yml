@@ -14,8 +14,12 @@ services:
       - 'create'
     arguments:
       $conn: '@doctrine.dbal.default_connection'
-      $config: '@doctrine.orm.default_manager_configurator'
+      $config: '@doctrine.orm.default_configuration'
 
+  doctrine.orm.default_entity_manager:
+    alias: Ivoz\Core\Infrastructure\Persistence\Doctrine\ORM\EntityManager
+    public: true
+    
   Ivoz\Core\Infrastructure\Persistence\Doctrine\ORM\Mapping\QuoteStrategy: ~
 
   core.doctrine_foreign_key_transformer:

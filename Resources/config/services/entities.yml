@@ -8,10 +8,7 @@ services:
     arguments:
     - '@doctrine.orm.entity_manager'
 
-  Ivoz\Core\Domain\Model\EntityInterface\ForeignKeyTransformerInterface:
-    '@Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer'
-
-  core.doctrine_foreign_key_transformer:
+  Ivoz\Core\Domain\ForeignKeyTransformerInterface:
     '@Ivoz\Core\Infrastructure\Application\DoctrineForeignKeyTransformer'
 
   Ivoz\Core\Infrastructure\Application\DoctrineCollectionTransformer:
@@ -24,20 +21,20 @@ services:
   core.doctrine_collection_transformer:
     '@Ivoz\Core\Infrastructure\Application\DoctrineCollectionTransformer'
 
-  Ivoz\Core\Application\Service\CreateEntityFromDto: ~
+  Ivoz\Core\Domain\Service\CreateEntityFromDto: ~
 
-  core.create_entity_from_dto: '@Ivoz\Core\Application\Service\CreateEntityFromDto'
+  core.create_entity_from_dto: '@Ivoz\Core\Domain\Service\CreateEntityFromDto'
 
-  Ivoz\Core\Application\Service\UpdateEntityFromDto:
+  Ivoz\Core\Domain\Service\UpdateEntityFromDto:
     public: true
 
   core.update_entity_from_dto:
-    class: Ivoz\Core\Application\Service\UpdateEntityFromDto
+    class: Ivoz\Core\Domain\Service\UpdateEntityFromDto
 
   Ivoz\Core\Domain\Service\EntityPersisterInterface:
     '@Ivoz\Core\Infrastructure\Domain\Service\DoctrineEntityPersister'
 
-  Ivoz\Core\Application\Service\EntityTools:
+  Ivoz\Core\Domain\Service\EntityTools:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
     public: true

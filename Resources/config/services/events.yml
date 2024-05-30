@@ -4,16 +4,18 @@ services:
     autoconfigure: true
     public: false
 
-  Ivoz\Core\Application\RequestId:
+  Ivoz\Core\Domain\RequestId:
     public: true
 
-  Ivoz\Core\Application\Service\CommandEventSubscriber: ~
-  Ivoz\Core\Domain\Service\EntityEventSubscriber: ~
+  Ivoz\Core\Domain\Service\CommandEventSubscriber: ~
+
+  Ivoz\Core\Domain\Service\EntityEventSubscriber:
+    public: true
 
   # DomainEventPublisher calls are autocompleted on cache regenerations (Compiler fase)
   Ivoz\Core\Domain\Service\DomainEventPublisher:
      shared: true
      public: true
      calls:
-      - [subscribe, ['@Ivoz\Core\Application\Service\CommandEventSubscriber']]
+      - [subscribe, ['@Ivoz\Core\Domain\Service\CommandEventSubscriber']]
       - [subscribe, ['@Ivoz\Core\Domain\Service\EntityEventSubscriber']]
