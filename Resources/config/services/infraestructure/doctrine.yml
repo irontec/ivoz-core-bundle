@@ -35,3 +35,14 @@ services:
     lazy: true
 
   Ivoz\Core\Infrastructure\Domain\Service\DoctrineQueryRunner: ~
+
+when@test:
+  services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+    Ivoz\Core\Infrastructure\Persistence\Doctrine\Test\SqliteSessionInitListener:
+      tags:
+          - { name: doctrine.event_listener, event: postConnect }
