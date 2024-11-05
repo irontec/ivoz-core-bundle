@@ -34,3 +34,15 @@ services:
 
   Ivoz\Core\Infrastructure\Persistence\Filesystem\Remove:
     tags: [{ name: 'domain.service'}]
+
+when@test:
+  services:
+    _defaults:
+      autowire: true
+      public: false
+
+    Ivoz\Core\Infrastructure\Persistence\Doctrine\Test\DuplicateEntryCommonErrorHandler:
+      tags: [{ name: 'domain.service'}]
+
+    Ivoz\Core\Infrastructure\Persistence\Doctrine\Test\OnDeleteRestrictCommonErrorHandler:
+      tags: [ { name: 'domain.service' } ]
